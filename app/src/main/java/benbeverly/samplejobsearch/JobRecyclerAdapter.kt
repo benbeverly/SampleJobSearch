@@ -9,12 +9,12 @@ import benbeverly.samplejobsearch.data.JobPost
  * Adapter for listing job posts
  */
 class JobRecyclerAdapter : RecyclerView.Adapter<JobViewHolder>() {
-    val jobList: ArrayList<JobPost> = ArrayList()
+    private val jobList: ArrayList<JobPost> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JobViewHolder {
         val view = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.view_holder_job, parent, false)
-            return JobViewHolder(view)
+                .inflate(R.layout.view_holder_job, parent, false)
+        return JobViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: JobViewHolder?, position: Int) {
@@ -25,6 +25,5 @@ class JobRecyclerAdapter : RecyclerView.Adapter<JobViewHolder>() {
 
     fun appendNewJobs(newJobs: List<JobPost>) {
         jobList.addAll(newJobs)
-        notifyDataSetChanged()
     }
 }
