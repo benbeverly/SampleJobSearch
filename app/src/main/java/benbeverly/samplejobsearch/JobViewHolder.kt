@@ -2,7 +2,6 @@ package benbeverly.samplejobsearch
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import benbeverly.samplejobsearch.data.JobPost
 import kotlinx.android.synthetic.main.view_holder_job.view.*
 
 /**
@@ -11,9 +10,9 @@ import kotlinx.android.synthetic.main.view_holder_job.view.*
  */
 class JobViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    fun bind(job: JobPost) {
-        itemView.text_company.text = job.company
-        itemView.text_title.text = job.title
-        itemView.text_location.text = job.location
+    fun bind(jobPost: JobPost) {
+        itemView.text_company.text = jobPost.company
+        itemView.text_title.text = jobPost.title
+        itemView.text_location.text = jobPost.location
     }
 }

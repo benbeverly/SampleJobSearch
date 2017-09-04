@@ -7,8 +7,14 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import benbeverly.samplejobsearch.data.JobPost
+import android.widget.Toast
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_main.*
+import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import retrofit2.converter.gson.GsonConverterFactory
+
 
 /**
  * A placeholder fragment containing a simple view.
@@ -16,6 +22,18 @@ import kotlinx.android.synthetic.main.fragment_main.*
 class MainActivityFragment : Fragment() {
 
     private var jobRecyclerAdapter = JobRecyclerAdapter()
+    private lateinit var service: RetrofitJobService
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // Skipping doing this via dependency injection with Dagger2
+        val retrofit = Retrofit.Builder()
+                .baseUrl("https://jobs.github.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build()
+
+        service = retrofit.create<RetrofitJobService>(RetrofitJobService::class.java)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -27,15 +45,17 @@ class MainActivityFragment : Fragment() {
         recycler_view_job.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         recycler_view_job.adapter = jobRecyclerAdapter
 
-        jobRecyclerAdapter.appendNewJobs(makeMockList())
-    }
-
-    private fun makeMockList(): ArrayList<JobPost> {
-        val newList = ArrayList<JobPost>()
-        newList.add(JobPost("1111", title = "Job 1", location = "Miami, FL", company = "Company #1"))
-        newList.add(JobPost("2222", title = "Job 2", location = "San Jose, CA", company = "Company #2"))
-        newList.add(JobPost("3333", title = "Job 3", location = "San Jose, CA", company = "Company #3"))
-        newList.add(JobPost("4444", title = "Job 4", location = "4 town", company = "Company #4"))
-        return newList
+        service.getJobs()
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        { jobList ->
+                            jobRecyclerAdapter.appendNewJobs(jobList)
+                        },
+                        { error ->
+                            Toast.makeText(context, "Error getting jobs " + error.message,
+                                    Toast.LENGTH_LONG).show()
+                        }
+                )
     }
 }

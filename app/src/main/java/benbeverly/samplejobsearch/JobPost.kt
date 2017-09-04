@@ -1,13 +1,12 @@
-package benbeverly.samplejobsearch.data
+package benbeverly.samplejobsearch
 
 import com.google.gson.annotations.SerializedName
-import java.util.*
 
 /**
  * Data class describing a job posting.
  */
 data class JobPost(@SerializedName("id") val id: String? = null,
-                   @SerializedName("created_at") val createdAt: Date? = null,
+                   @SerializedName("created_at") val createdAt: String? = null,
                    @SerializedName("title")val title: String? = null,
                    @SerializedName("location") val location: String? = null,
                    @SerializedName("type") val type: String? = null,
