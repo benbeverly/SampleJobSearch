@@ -25,5 +25,6 @@ class JobRecyclerAdapter : RecyclerView.Adapter<JobViewHolder>() {
 
     fun appendNewJobs(newJobs: List<JobPost>) {
         jobList.addAll(newJobs)
+        notifyDataSetChanged()
     }
 }
