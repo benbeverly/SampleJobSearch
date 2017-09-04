@@ -2,6 +2,7 @@ package benbeverly.samplejobsearch
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -23,7 +24,9 @@ class MainActivityFragment : Fragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         recycler_view_job.layoutManager = LinearLayoutManager(context)
+        recycler_view_job.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         recycler_view_job.adapter = jobRecyclerAdapter
+
         jobRecyclerAdapter.appendNewJobs(makeMockList())
     }
 
