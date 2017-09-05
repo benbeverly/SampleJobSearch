@@ -53,7 +53,7 @@ class MainActivityFragment : Fragment() {
                             jobRecyclerAdapter.appendNewJobs(jobList)
                         },
                         { error ->
-                            Toast.makeText(context, "Error getting jobs " + error.message,
+                            Toast.makeText(context, getString(R.string.error_get_job, error.message),
                                     Toast.LENGTH_LONG).show()
                         }
                 )
