@@ -1,5 +1,6 @@
-package benbeverly.samplejobsearch
+package benbeverly.samplejobsearch.service
 
+import benbeverly.samplejobsearch.model.JobPost
 import io.reactivex.Observable
 import retrofit2.http.GET
 

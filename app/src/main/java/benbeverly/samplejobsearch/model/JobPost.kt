@@ -1,4 +1,4 @@
-package benbeverly.samplejobsearch
+package benbeverly.samplejobsearch.model
 
 import com.google.gson.annotations.SerializedName
 
@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName
  */
 data class JobPost(@SerializedName("id") val id: String? = null,
                    @SerializedName("created_at") val createdAt: String? = null,
-                   @SerializedName("title")val title: String? = null,
+                   @SerializedName("getTitle")val title: String? = null,
                    @SerializedName("location") val location: String? = null,
                    @SerializedName("type") val type: String? = null,
                    @SerializedName("description") val description: String? = null,

@@ -13,7 +13,6 @@ Was also a great opportunity to introduce myself into RxJava which I wish I had 
 I took some shortcuts in writing this that I wouldn't normally do in a larger application.
 * Dependency Injection: I took a quick shortcut and just create my Retrofit service inside my main Fragment.
 In a larger application, I'd initialize and setup my Dependency Manager within my Application class and then Dependency Inject that to my classes using [Dagger2](https://google.github.io/dagger/)
-* Project Structure with so few files, I didn't want to make an assortment of packages with just one file in each. So I just left everything on the top level and it helps to navigate through to look at the source
 
 ## Future features
 I added a search button in the main menu, I'd like to revisit the sample someday and actually implement.
