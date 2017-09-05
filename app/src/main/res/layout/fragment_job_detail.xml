@@ -1,6 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/x3">
+
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_divider"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <TextView
+            android:id="@+id/text_type_and_location"
+            style="@style/SubTitleText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="textStart"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Full Time / San Francisco" />
+
+        <TextView
+            android:id="@+id/text_title"
+            style="@style/TitleText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/x3"
+            android:textAlignment="textStart"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/guideline_divider"
+            app:layout_constraintTop_toBottomOf="@id/text_type_and_location"
+            tools:text="Title Time" />
+
+        <TextView
+            android:id="@+id/text_company"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/x3"
+            android:textAlignment="textEnd"
+            app:layout_constraintLeft_toRightOf="@id/guideline_divider"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/text_title"
+            tools:text="Company" />
+
+        <TextView
+            android:id="@+id/text_how_to_apply"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="textEnd"
+            app:layout_constraintLeft_toRightOf="@id/guideline_divider"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_company"
+            tools:text="Email resume to @mail.com" />
+
+        <TextView
+            android:id="@+id/text_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x3"
+            android:textAlignment="textStart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_how_to_apply"
+            tools:text="Super long description that will go on for lines" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

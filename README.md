@@ -15,6 +15,8 @@ I took some shortcuts in writing this that I wouldn't normally do in a larger ap
 In a larger application, I'd initialize and setup my Dependency Manager within my Application class and then Dependency Inject that to my classes using [Dagger2](https://google.github.io/dagger/)
 
 ## Future features
+First up, I need to add Glide or Picasso for loading the company images. Should be a quick add, but I didn't get to it yet
+
 I added a search button in the main menu, I'd like to revisit the sample someday and actually implement.
 But I couldn't finish that in the first weekend I was throwing this app together.
 

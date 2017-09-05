@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?android:attr/selectableItemBackground"
@@ -24,7 +25,8 @@
         android:textAlignment="textStart"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@id/guideline_divider"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Title" />
 
     <TextView
         android:id="@+id/text_location"
@@ -35,7 +37,8 @@
         android:textAlignment="textEnd"
         app:layout_constraintLeft_toRightOf="@id/guideline_divider"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Location, LO" />
 
     <TextView
         android:id="@+id/text_company"
@@ -47,6 +50,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_title" />
+        app:layout_constraintTop_toBottomOf="@id/text_title"
+        tools:text="Company" />
 
 </android.support.constraint.ConstraintLayout>
