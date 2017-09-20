@@ -19,10 +19,11 @@ class MainActivity : AppCompatActivity(), FragmentManager.OnBackStackChangedList
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
         supportFragmentManager.addOnBackStackChangedListener(this)
-
-        supportFragmentManager.beginTransaction()
-                .add(R.id.fragment, JobListFragment.newInstance())
-                .commit()
+        if (supportFragmentManager.backStackEntryCount == 0) {
+            supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragment, JobListFragment.newInstance())
+                    .commit()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

@@ -3,4 +3,5 @@
     <string name="title_activity_main">Jobs Around GitHub</string>
     <string name="search">Search</string>
     <string name="error_get_job">Error getting jobs %1$s</string>
+    <string name="content_description_image_logo">Image Logo</string>
 </resources>

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import benbeverly.samplejobsearch.R
 import benbeverly.samplejobsearch.model.JobPost
 import com.google.gson.Gson
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_job_detail.*
 
 
@@ -50,6 +51,8 @@ class JobDetailFragment : BaseFragment() {
         text_description.text = Html.fromHtml(jobPost.description)
         text_company.text = jobPost.company
         text_how_to_apply.text = Html.fromHtml(jobPost.howToApply)
+
+        Picasso.with(context).load(jobPost.companyLogo).into(image_company)
     }
 
     override fun getTitle(): String? = jobPost.title
